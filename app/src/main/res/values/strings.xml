@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">XRecyclerViewDemo</string>
+    <string name="start_loading">正在加载...</string>
+    <string name="complete_loading">加载完成...</string>
+    <string name="nomore_loading">我们是有底线的白菜^_^</string>
+</resources>

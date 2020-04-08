@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:waterdrop="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.example.xrecyclerviewdemo.xrecyclerview.WaterDropView
+        android:id="@+id/waterdroplist_waterdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        waterdrop:bottomcircle_x="20dp"
+        waterdrop:bottomcircle_y="20dp"
+        waterdrop:max_circle_radius="10dp"
+        waterdrop:min_circle_radius="2dp"
+        waterdrop:topcircle_x="20dp"
+        waterdrop:topcircle_y="20dp"
+        waterdrop:waterdrop_color="#000000" />
+
+<!--    <com.example.xrecyclerviewdemo.xrecyclerview.SimpleViewSwitcher-->
+<!--        android:id="@+id/listview_header_progressbar"-->
+<!--        android:layout_width="30dip"-->
+<!--        android:layout_height="30dip"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginLeft="40dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:visibility="invisible" />-->
+
+    <ImageView
+        android:id="@+id/listview_header_progressbar"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="10dp"
+        android:src="@android:drawable/stat_notify_sync"
+        tools:tint="#666666"
+        android:visibility="visible"/>
+</RelativeLayout>
