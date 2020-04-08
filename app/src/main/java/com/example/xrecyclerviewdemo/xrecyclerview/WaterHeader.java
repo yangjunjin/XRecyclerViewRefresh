@@ -217,7 +217,7 @@ public class WaterHeader extends LinearLayout implements BaseRefreshHeader {
 
     /**
      * 进度条类型
-     * 选择一个类型的进度条      ddf
+     * 选择一个类型的进度条
      */
     public void setProgressStyle(int style) {
 //        mProgressBar.setView(new ProgressBar(mContext, null, android.R.attr.progressBarStyle));
