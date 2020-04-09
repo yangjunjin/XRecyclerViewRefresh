@@ -75,7 +75,7 @@ public class WaterHeader extends LinearLayout implements BaseRefreshHeader {
         measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mMeasuredHeight = getMeasuredHeight();
     }
-    ProgressDrawable mProgressDrawable = new ProgressDrawable();
+    ProgressDrawable mProgressDrawable = new ProgressDrawable();    //fdfd
     //外部调用，向下移动显示多少
     @Override
     public void onMove(float delta) {
