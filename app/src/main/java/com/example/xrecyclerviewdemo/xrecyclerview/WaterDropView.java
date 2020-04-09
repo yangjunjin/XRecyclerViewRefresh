@@ -50,16 +50,16 @@ public class WaterDropView extends View {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.WaterDropView, 0, 0);
             try {
                 if (a.hasValue(R.styleable.WaterDropView_waterdrop_color)) {
-                    int waterDropColor = a.getColor(R.styleable.WaterDropView_waterdrop_color, Color.GRAY);
+                    int waterDropColor = a.getColor(R.styleable.WaterDropView_waterdrop_color, Color.WHITE);
                     mPaint.setColor(waterDropColor);
                 }
                 if (a.hasValue(R.styleable.WaterDropView_max_circle_radius)) {
                     mMaxCircleRadius = a.getDimensionPixelSize(R.styleable.WaterDropView_max_circle_radius, 0);
 
                     topCircle.setRadius(mMaxCircleRadius);
-                    topCircle.setColor(Color.parseColor("#ffffff"));
+                    topCircle.setColor(Color.WHITE);
                     bottomCircle.setRadius(mMaxCircleRadius);
-                    bottomCircle.setColor(Color.parseColor("#ffffff"));
+                    bottomCircle.setColor(Color.WHITE);
 
                     topCircle.setX(STROKE_WIDTH + mMaxCircleRadius);
                     topCircle.setY(STROKE_WIDTH + mMaxCircleRadius);
@@ -86,7 +86,7 @@ public class WaterDropView extends View {
         bottomCircle = new Circle();
         mPath = new Path();
         mPaint = new Paint();
-        mPaint.setColor(Color.GRAY);
+        mPaint.setColor(Color.WHITE);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         mPaint.setStrokeWidth(STROKE_WIDTH);
@@ -115,17 +115,16 @@ public class WaterDropView extends View {
         setMeasuredDimension(width, height);
     }
 
-
     @Override
     protected void onDraw(Canvas canvas) {
         makeBezierPath();
         //画顶部
-        mPaint.setColor(Color.parseColor("#2abb9c"));
+        mPaint.setColor(Color.WHITE);
         canvas.drawPath(mPath, mPaint);
         canvas.drawCircle(topCircle.getX(), topCircle.getY(), topCircle.getRadius(), mPaint);
 
         //画底部
-        mPaint.setColor(Color.parseColor("#2abb9c"));
+        mPaint.setColor(Color.WHITE);
         canvas.drawCircle(bottomCircle.getX(), bottomCircle.getY(), bottomCircle.getRadius(), mPaint);
 
 //        RectF bitmapArea = new RectF(
@@ -158,15 +157,11 @@ public class WaterDropView extends View {
         mPath.lineTo(top_x1, top_y1);
 
         mPath.quadTo((bottomCircle.getX() - bottomCircle.getRadius()),
-                (bottomCircle.getY() + topCircle.getY()) / 2,
-                bottom_x1,
-                bottom_y1);
+                (bottomCircle.getY() + topCircle.getY()) / 2, bottom_x1, bottom_y1);
         mPath.lineTo(bottom_x2, bottom_y2);
 
         mPath.quadTo((bottomCircle.getX() + bottomCircle.getRadius()),
-                (bottomCircle.getY() + top_y2) / 2,
-                top_x2,
-                top_y2);
+                (bottomCircle.getY() + top_y2) / 2, top_x2, top_y2);
         mPath.close();
     }
 
@@ -194,7 +189,7 @@ public class WaterDropView extends View {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                updateComleteState((float) animation.getAnimatedValue());
+                updateCompleteState((float) animation.getAnimatedValue());
             }
         });
         return valueAnimator;
@@ -205,7 +200,7 @@ public class WaterDropView extends View {
      *
      * @param percent between[0,1]
      */
-    public void updateComleteState(float percent) {
+    public void updateCompleteState(float percent) {
         if (percent < 0)
             percent = 0;
         if (percent > 1)
@@ -217,8 +212,8 @@ public class WaterDropView extends View {
         float bottom_r = (mMinCircleRaidus - mMaxCircleRadius) * percent + mMaxCircleRadius;
         bottomCircle.setRadius(bottom_r);
         //设置bottomCircle Y轴距离
-        float bottomCricleOffset = 3.2f * percent * mMaxCircleRadius;
-        bottomCircle.setY(topCircle.getY() + bottomCricleOffset);
+        float bottomCircleOffset = 3.2f * percent * mMaxCircleRadius;
+        bottomCircle.setY(topCircle.getY() + bottomCircleOffset);
         requestLayout();
         postInvalidate();
     }

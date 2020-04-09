@@ -13,10 +13,10 @@
         android:layout_centerHorizontal="true"
         waterdrop:bottomcircle_x="20dp"
         waterdrop:bottomcircle_y="20dp"
-        waterdrop:max_circle_radius="10dp"
-        waterdrop:min_circle_radius="2dp"
         waterdrop:topcircle_x="20dp"
         waterdrop:topcircle_y="20dp"
+        waterdrop:max_circle_radius="10dp"
+        waterdrop:min_circle_radius="2dp"
         waterdrop:waterdrop_color="#000000" />
 
 <!--    <com.example.xrecyclerviewdemo.xrecyclerview.SimpleViewSwitcher-->

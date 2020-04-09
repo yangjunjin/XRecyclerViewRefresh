@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.example.xrecyclerviewdemo.R;
@@ -49,8 +48,7 @@ public class WaterHeader extends LinearLayout implements BaseRefreshHeader {
     private void initView(Context context) {
         mContext = context;
         // 初始情况，设置下拉刷新view高度为0
-        mContainer = (RelativeLayout) LayoutInflater.from(context).inflate(
-                R.layout.v_res_recycler_header, null);
+        mContainer = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.v_res_recycler_header, null);
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         lp.setMargins(0, 0, 0, 0);
         this.setLayoutParams(lp);
@@ -75,7 +73,7 @@ public class WaterHeader extends LinearLayout implements BaseRefreshHeader {
         measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mMeasuredHeight = getMeasuredHeight();
     }
-    ProgressDrawable mProgressDrawable = new ProgressDrawable();    //fdfd
+    ProgressDrawable mProgressDrawable = new ProgressDrawable();
     //外部调用，向下移动显示多少
     @Override
     public void onMove(float delta) {
@@ -84,7 +82,7 @@ public class WaterHeader extends LinearLayout implements BaseRefreshHeader {
             if (mState <= STATE_RELEASE_TO_REFRESH) { // 未处于刷新状态,进行水滴的拉伸的变化
                 //计算显示比例 -- 减去直径，距离顶部的距离
                 percent = (getVisibleHeight() - 2 * mWaterDropView.getTopCircle().getRadius() - 30) / mMeasuredHeight;
-                mWaterDropView.updateComleteState(percent);
+                mWaterDropView.updateCompleteState(percent);
                 if (percent >= 1) {//完成度大于等于1
                     setState(STATE_RELEASE_TO_REFRESH);
                 } else {
